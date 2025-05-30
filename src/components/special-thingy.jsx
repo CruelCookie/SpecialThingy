@@ -11,17 +11,18 @@ const flowers = [
 ];
 
 export default function FlowerDateInvite() {
-  const [revealed, setRevealed] = useState([]);
+  const [flipped, setFlipped] = useState([]);
   const [showFinal, setShowFinal] = useState(false);
 
   const handleClick = (name) => {
-    if (!revealed.includes(name)) {
-      const newRevealed = [...revealed, name];
-      setRevealed(newRevealed);
-      if (newRevealed.length === flowers.length) {
+    setFlipped((prev) => {
+      const newFlipped = { ...prev, [name]: !prev[name] }; // toggle the flip state
+      // Check if all flowers are flipped
+      if (Object.values(newFlipped).filter(Boolean).length === flowers.length) {
         setTimeout(() => setShowFinal(true), 600);
       }
-    }
+      return newFlipped;
+    });
   };
 
   return (
@@ -36,7 +37,7 @@ export default function FlowerDateInvite() {
             onClick={() => handleClick(flower.name)}
             className="cursor-pointer bg-white rounded-2xl p-6 shadow-lg hover:scale-105 transition-transform text-center w-40 h-40 flex items-center justify-center"
           >
-            {revealed.includes(flower.name) ? (
+            {flipped[flower.name] ? (
               <p className="text-pink-700 text-sm">{flower.reason}</p>
             ) : (
               <p className="text-lg font-semibold text-pink-500">{flower.name}</p>
