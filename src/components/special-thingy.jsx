@@ -27,8 +27,8 @@ export default function FlowerDateInvite() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-200 to-yellow-100 flex flex-col items-center justify-center p-6">
       <h1 className="text-4xl font-bold mb-6 text-pink-700">Собери букетик :3</h1>
-      <h2 className="text-xl text-pink-500 mb-6">Эти цветочки мы пойдем с тобой собирать! А когда соберем букет, устром пикник♡</h2>
-      <h3 className="text-xl text-pink-500 mb-6">Нажми на каждый цветочек❣</h3>
+      <h2 className="text-xl text-pink-600 mb-6">Эти цветочки мы пойдем с тобой собирать! А когда соберем букет, устром пикник♡</h2>
+      <h3 className="text-xl text-pink-600 mb-6">Нажми на каждый цветочек❣</h3>
       <div className="grid grid-cols-2 gap-4">
         {flowers.map((flower) => (
           <div
